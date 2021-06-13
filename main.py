@@ -10,6 +10,7 @@ import logging
 logging.basicConfig(level="DEBUG", stream=sys.stdout, format='%(asctime)s - %(module)s - %(funcName)s - %(name)s - %(levelname)s - %(message)s')
 
 app = Flask(__name__)
+CORS(app)
 
 ######### DATABASE SIMULATIONS START #########
 
@@ -219,6 +220,10 @@ def send_booking_confirmation_email(booking):
     user = app.config[User.table_name][booking["user"]]
     threading.Thread(target=logging.debug, args=[f'Email sent to user {user.name} at {user.email}, for booking on {booking["booking_date"]}, movie {booking["movie"]["name"]} at {booking["theater"]["name"]}']).start()
 
+@app.route('/', methods=['GET'])
+def index():
+    return jsonify({'msg' : 'Refer README for API Endpoints'})
+
 @app.route('/cities', methods=['GET', 'POST'])
 def cities():
     if request.method=='GET':
@@ -311,4 +316,5 @@ def city_movie_theaters(city_id, movie_id):
         return {"msg" : "Something went wrong"}, 500
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port='5001', use_reloader=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug = True, host = '0.0.0.0', port = port)
