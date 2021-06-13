@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "4182aefe-e974-49d7-81e8-a62efa974a7b",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET ALL CITIES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/cities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE CITY",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Dwarka\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/cities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL MOVIES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE MOVIE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Home Alone\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL THEATERS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/theaters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"theaters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE THEATER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"PVR Vikaspuri\",\n    \"city\" : \"6bb9dcab-74e2-48bc-b52b-3154c8973599\",\n    \"num_seats\" : \"100\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/theaters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"theaters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD MOVIE TO THEATER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"PVR Vikaspuri\",\n    \"city\" : \"f43fc1a5-f172-4a0b-8491-5a51cd6ff666\",\n    \"num_seats\" : \"100\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/theaters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"theaters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE USER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Michalangelo\",\n    \"email\" : \"michalangelo@ninjaturtles.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Michalangelo\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/user/0b56b4a2-537b-4665-9b85-e43a753dbef9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"user",
+						"0b56b4a2-537b-4665-9b85-e43a753dbef9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TICKET BOOKING",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\" : \"fb610cbf-343d-430d-a25f-30d8fa3e000e\",\n    \"theater\" : \"4aa641b8-f48a-47ca-8043-e57398b6ac82\",\n    \"movie\" : \"b3888f51-b493-462b-b263-6e31ff3f7c9e\",\n    \"seat_num\" : \"F11\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET THEATER WITH CITY AND MOVIE",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5001/theaters/<city_id>/<movie_id>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"theaters",
+						"<city_id>",
+						"<movie_id>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET HIGHEST BOOKED THEATER FOR MONTH-YEAR",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5001/highest-bookings/05-2021",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"highest-bookings",
+						"05-2021"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

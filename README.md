@@ -11,7 +11,9 @@
 - Make a `python3` virtual environment and `active` it.
 - Run `pip install -r requirements.txt`
 - Run `python main.py`
-- POSTMAN Import `POSTMAN_COLLECTION.json` in postman to get list of APIs
+
+
+> POSTMAN Import `POSTMAN_COLLECTION.json` in postman to get list of APIs
 
 ## API Docs
 
