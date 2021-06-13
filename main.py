@@ -98,8 +98,8 @@ class Theater(CRUD):
         app.config[City.table_name][self.city].theaters.append(self)
         return self.id
 
-    def add_movie(self, movie_id):
-        self.movies[movie_id] = self.seats
+    def add_movie(self, movie_id, show_timing):
+        self.movies[movie_id] = {'seats_available':self.seats, 'show_timing' : show_timing}
         app.config[Movie.table_name][movie_id].theaters.append(self)
 
     def serialize(self):
@@ -108,7 +108,7 @@ class Theater(CRUD):
             "name":self.name,
             #"seats":self.seats,
             "city":app.config[City.table_name][self.city].serialize(),
-            "movies":[{**app.config[Movie.table_name][movie].serialize(), **{'seats_left' : seats}} for movie, seats in self.movies.items()]
+            "movies":[{**app.config[Movie.table_name][movie].serialize(), **{'seats_left' : extra["seats_available"], 'show_timing':extra["show_timing"]}} for movie, extra in self.movies.items()]
         }
 
     # def __repr__(self):
@@ -153,15 +153,16 @@ class Booking(CRUD):
         self.id = str(uuid.uuid4())
         app.config[self.table_name][self.id] = self
         app.config[User.table_name][self.user].bookings.append(self)
-        Theater.get_obj_by_id(self.theater).movies[self.movie] = Theater.get_obj_by_id(self.theater).movies[self.movie] - 1
+        Theater.get_obj_by_id(self.theater).movies[self.movie]['seats_available'] = Theater.get_obj_by_id(self.theater).movies[self.movie]['seats_available'] - 1
         return self.id
 
     def serialize(self):
+        theater_details = Theater.get_obj_by_id(self.theater)
         return {
             "id":self.id,
             "user":self.user,
-            "theater":app.config[Theater.table_name][self.theater].serialize(),
-            "movie":app.config[Movie.table_name][self.movie].serialize(),
+            "theater":theater_details.serialize(),
+            "movie":{**app.config[Movie.table_name][self.movie].serialize(), **theater_details.movies[self.movie]},
             "booking_date":self.booking_date.strftime("%Y-%m-%d %H:%M:%S"),
             "seat_num":self.seat_num
         }
@@ -187,6 +188,7 @@ class User(CRUD):
         return {
             "id":self.id,
             "name":self.name,
+            "email":self.email,
             "bookings":[booking.serialize() for booking in self.bookings]
         }
     
@@ -209,7 +211,7 @@ for key, value in data.items():
     for theater_name, movies in value.items():
         theater = Theater(theater_name,city,random.randint(90, 100)).save()
         for movie in movies:
-            app.config['theaters'][theater].add_movie(movie)
+            app.config['theaters'][theater].add_movie(movie, f"{random.randint(10,18)}:00")
 
 ######### TEST DATA #########
 
@@ -221,7 +223,7 @@ def send_booking_confirmation_email(booking):
     threading.Thread(target=logging.debug, args=[f'Email sent to user {user.name} at {user.email}, for booking on {booking["booking_date"]}, movie {booking["movie"]["name"]} at {booking["theater"]["name"]}']).start()
 
 @app.route('/', methods=['GET'])
-def index():
+def index_page():
     return jsonify({'msg' : 'Refer README for API Endpoints'})
 
 @app.route('/cities', methods=['GET', 'POST'])
@@ -257,7 +259,7 @@ def add_movie(theater_id):
     try:
         theater = app.config[Theater.table_name][theater_id]
         for movie in movie_ids:
-            theater.add_movie(movie)
+            theater.add_movie(movie['id'], movie['show_timing'])
         return jsonify(Theater.get_by_id(theater_id))
     except:
         return {"msg" : "Something went wrong"}, 500
@@ -299,8 +301,7 @@ def highest_bookings(month_year):
     result = {'theater':'', "bookings":0}
     for theater, bookings in theater_freq.items():
         if bookings > result['bookings']:
-            result = {'theater':theater, "bookings":bookings}
-    reresult['theater'] = Theater.get_by_id(reresult['theater'])
+            result = {'theater':Theater.get_by_id(theater), "bookings":bookings}
     return jsonify(result)
 
 # GET THEATERS BASED ON CITY AND MOVIE
@@ -316,5 +317,6 @@ def city_movie_theaters(city_id, movie_id):
         return {"msg" : "Something went wrong"}, 500
 
 if __name__ == '__main__':
+    import os
     port = int(os.environ.get('PORT', 5000))
     app.run(debug = True, host = '0.0.0.0', port = port)

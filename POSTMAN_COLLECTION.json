@@ -11,12 +11,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5001/cities",
-					"protocol": "http",
+					"raw": "https://ripu-haptik-assignment.herokuapp.com/cities",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"ripu-haptik-assignment",
+						"herokuapp",
+						"com"
 					],
-					"port": "5001",
 					"path": [
 						"cities"
 					]
@@ -37,15 +38,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\" : \"Dwarka\"\n}"
+					"raw": "{\n    \"name\" : \"Tilak nagar\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5001/cities",
-					"protocol": "http",
+					"raw": "https://ripu-haptik-assignment.herokuapp.com/cities",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"ripu-haptik-assignment",
+						"herokuapp",
+						"com"
 					],
-					"port": "5001",
 					"path": [
 						"cities"
 					]
@@ -59,12 +61,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5001/movies",
-					"protocol": "http",
+					"raw": "https://ripu-haptik-assignment.herokuapp.com/movies",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"ripu-haptik-assignment",
+						"herokuapp",
+						"com"
 					],
-					"port": "5001",
 					"path": [
 						"movies"
 					]
@@ -88,12 +91,13 @@
 					"raw": "{\n    \"name\":\"Home Alone\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5001/movies",
-					"protocol": "http",
+					"raw": "https://ripu-haptik-assignment.herokuapp.com/movies",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"ripu-haptik-assignment",
+						"herokuapp",
+						"com"
 					],
-					"port": "5001",
 					"path": [
 						"movies"
 					]
@@ -103,16 +107,24 @@
 		},
 		{
 			"name": "GET ALL THEATERS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://localhost:5001/theaters",
-					"protocol": "http",
+					"raw": "https://ripu-haptik-assignment.herokuapp.com/theaters",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"ripu-haptik-assignment",
+						"herokuapp",
+						"com"
 					],
-					"port": "5001",
 					"path": [
 						"theaters"
 					]
@@ -133,15 +145,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\" : \"PVR Vikaspuri\",\n    \"city\" : \"6bb9dcab-74e2-48bc-b52b-3154c8973599\",\n    \"num_seats\" : \"100\"\n}"
+					"raw": "{\n    \"name\" : \"PVR Jail road\",\n    \"city\" : \"6fa85aa9-1ca0-4519-b307-27437d2530f6\",\n    \"num_seats\" : 100\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5001/theaters",
-					"protocol": "http",
+					"raw": "https://ripu-haptik-assignment.herokuapp.com/theaters",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"ripu-haptik-assignment",
+						"herokuapp",
+						"com"
 					],
-					"port": "5001",
 					"path": [
 						"theaters"
 					]
@@ -162,17 +175,19 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\" : \"PVR Vikaspuri\",\n    \"city\" : \"f43fc1a5-f172-4a0b-8491-5a51cd6ff666\",\n    \"num_seats\" : \"100\"\n}"
+					"raw": "{\n    \"movies\" : [\n        {\"id\":\"8e078531-5d80-48d6-bc9e-c11a47bf28ce\", \"show_timing\":\"12:00\"},\n        {\"id\":\"01d4f0f2-fdfb-4cbe-a164-0cae051670e6\", \"show_timing\":\"15:00\"}\n    ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5001/theaters",
-					"protocol": "http",
+					"raw": "https://ripu-haptik-assignment.herokuapp.com/add-movie/87d1526f-3a0e-4ae3-a1a1-f78b4e29f2ef",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"ripu-haptik-assignment",
+						"herokuapp",
+						"com"
 					],
-					"port": "5001",
 					"path": [
-						"theaters"
+						"add-movie",
+						"87d1526f-3a0e-4ae3-a1a1-f78b4e29f2ef"
 					]
 				}
 			},
@@ -194,12 +209,13 @@
 					"raw": "{\n    \"name\" : \"Michalangelo\",\n    \"email\" : \"michalangelo@ninjaturtles.com\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5001/users",
-					"protocol": "http",
+					"raw": "https://ripu-haptik-assignment.herokuapp.com/users",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"ripu-haptik-assignment",
+						"herokuapp",
+						"com"
 					],
-					"port": "5001",
 					"path": [
 						"users"
 					]
@@ -223,18 +239,19 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\" : \"Michalangelo\"\n}"
+					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:5001/user/0b56b4a2-537b-4665-9b85-e43a753dbef9",
-					"protocol": "http",
+					"raw": "https://ripu-haptik-assignment.herokuapp.com/user/33721246-04e0-4d9a-898f-e80ad895c2ef",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"ripu-haptik-assignment",
+						"herokuapp",
+						"com"
 					],
-					"port": "5001",
 					"path": [
 						"user",
-						"0b56b4a2-537b-4665-9b85-e43a753dbef9"
+						"33721246-04e0-4d9a-898f-e80ad895c2ef"
 					]
 				}
 			},
@@ -253,15 +270,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user\" : \"fb610cbf-343d-430d-a25f-30d8fa3e000e\",\n    \"theater\" : \"4aa641b8-f48a-47ca-8043-e57398b6ac82\",\n    \"movie\" : \"b3888f51-b493-462b-b263-6e31ff3f7c9e\",\n    \"seat_num\" : \"F11\"\n}"
+					"raw": "{\n    \"user\" : \"33721246-04e0-4d9a-898f-e80ad895c2ef\",\n    \"theater\" : \"87d1526f-3a0e-4ae3-a1a1-f78b4e29f2ef\",\n    \"movie\" : \"8e078531-5d80-48d6-bc9e-c11a47bf28ce\",\n    \"seat_num\" : \"F12\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5001/bookings",
-					"protocol": "http",
+					"raw": "https://ripu-haptik-assignment.herokuapp.com/bookings",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"ripu-haptik-assignment",
+						"herokuapp",
+						"com"
 					],
-					"port": "5001",
 					"path": [
 						"bookings"
 					]
@@ -281,16 +299,17 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:5001/theaters/<city_id>/<movie_id>",
-					"protocol": "http",
+					"raw": "https://ripu-haptik-assignment.herokuapp.com/theaters/c0def9a9-f7de-46e1-9c7e-ad4a10e3a6d5/47275557-7b45-4a46-a3f9-e77720084423",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"ripu-haptik-assignment",
+						"herokuapp",
+						"com"
 					],
-					"port": "5001",
 					"path": [
 						"theaters",
-						"<city_id>",
-						"<movie_id>"
+						"c0def9a9-f7de-46e1-9c7e-ad4a10e3a6d5",
+						"47275557-7b45-4a46-a3f9-e77720084423"
 					]
 				}
 			},
@@ -308,15 +327,16 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:5001/highest-bookings/05-2021",
-					"protocol": "http",
+					"raw": "https://ripu-haptik-assignment.herokuapp.com/highest-bookings/06-2021",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"ripu-haptik-assignment",
+						"herokuapp",
+						"com"
 					],
-					"port": "5001",
 					"path": [
 						"highest-bookings",
-						"05-2021"
+						"06-2021"
 					]
 				}
 			},

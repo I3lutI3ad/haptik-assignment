@@ -34,7 +34,7 @@
 
 ### `/add-movie/<theater_id>`
 #### `POST` - Add movies to theater
-- `{"movies" : [<MOVIE IDS>]}`
+- `{"movies" : [{id:<MOVIE_ID>, show_timing:<SHOW TIMING>}]}`
 
 ### `/users`
 #### `GET` - Get Users list
