@@ -2,6 +2,12 @@
 
 ## SETUP and RUN
 
+### Dockerized
+- Install docker into system
+- Run `docker build -t haptik_assignment:ripu .`
+- Run `docker run -p 5001:5001 haptik_assignment:ripu`
+
+### NON-Dockerized
 - Make a `python3` virtual environment and `active` it.
 - Run `pip install -r requirements.txt`
 - Run `python main.py`

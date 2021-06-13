@@ -5,8 +5,9 @@ from datetime import datetime
 import random
 import json
 import threading
+import sys
 import logging
-logging.basicConfig(filename="app.log", filemode="w+", level="DEBUG", format='%(asctime)s - %(module)s - %(funcName)s - %(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(level="DEBUG", stream=sys.stdout, format='%(asctime)s - %(module)s - %(funcName)s - %(name)s - %(levelname)s - %(message)s')
 
 app = Flask(__name__)
 
